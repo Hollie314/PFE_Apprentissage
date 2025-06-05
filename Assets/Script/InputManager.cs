@@ -6,6 +6,9 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
     private PlayerInput.OnFootActions onFoot;
+    
+    public PlayerInput.OnFootActions OnFoot => onFoot;
+
 
     private PlayerMotor motor;
     private PlayerLook look;
