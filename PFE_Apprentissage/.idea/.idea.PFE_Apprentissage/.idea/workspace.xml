@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b99e40a7-edbc-46b1-b769-d13035a81c42" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Assets/Project/Prefab/Player.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Assets/Project/Prefab/Player.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Script/Interactable/Keypad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Script/Interactable/Keypad.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Assets/Script/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Assets/Script/PlayerInteract.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PFE_Apprentissage/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PFE_Apprentissage/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +98,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1749115655259</updated>
-      <workItem from="1749115658341" duration="13402000" />
+      <workItem from="1749115658341" duration="14156000" />
     </task>
     <servers />
   </component>
