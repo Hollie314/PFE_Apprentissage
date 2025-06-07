@@ -5,6 +5,7 @@ public class AttackState : BaseState
     private float moveTimer;
     private float losePlayerTimer;
 	private float shotTimer;
+
     public override void Enter()
     {
         
@@ -21,26 +22,50 @@ public class AttackState : BaseState
         {
             losePlayerTimer = 0;
             moveTimer += Time.deltaTime;
+			shotTimer += Time.deltaTime;
+			enemy.transform.LookAt(enemy.Player.transform);
+			//if shot Timer > fireRate.
+			if (shotTimer > enemy.fireRate)
+			{	
+				Shoot();
+			}
+
             if (moveTimer > Random.Range(3, 7))
             {
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
                 moveTimer = 0;
             }
+			enemy.LastKnowPos = enemy.Player.transform.position;
         }
         else
         {
             losePlayerTimer += Time.deltaTime;
-            if (losePlayerTimer > 8)
+            if (losePlayerTimer > 2)
             {
                 //Change to the search state.
-                stateMachine.ChangeState(new PatrolState());
+                stateMachine.ChangeState(new SearchState());
             }
         }
     }
 	public void Shoot()
-	{
-		Debug.Log("Shoot");
+{
+    	GameObject bulletPrefab = Resources.Load("Prefabs/Bullet") as GameObject;
+    	if (bulletPrefab != null)
+    	{
+        	Transform gunBarrel = enemy.gunBarrel; // récupère la référence depuis enemy
+
+        	GameObject bullet = GameObject.Instantiate(bulletPrefab, gunBarrel.position, enemy.transform.rotation);
+        	Vector3 shootDirection = (enemy.Player.transform.position - gunBarrel.position).normalized;
+        	bullet.GetComponent<Rigidbody>().linearVelocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * 40;
+        	Debug.Log("Shoot");
+        	shotTimer = 0;
+    	}
+    	else
+    	{
+        	Debug.LogError("Bullet prefab not found! Check Resources/Prefabs/Bullet path.");
+    	}
 	}
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
