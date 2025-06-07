@@ -4,16 +4,23 @@ public class Enemy : MonoBehaviour
 {
     private StateMachine stateMachine;
     private NavMeshAgent agent;
-    public NavMeshAgent Agent { get => agent; }
-    //Just for debugging purposes.
-
-    [SerializeField] private string currentState;
-
-    public Path path;
     private GameObject player;
+    public NavMeshAgent Agent { get => agent; }
+    public Path path;
+    [Header("Sight Values")]
     public float sightDistance = 20f;
     public float fielOfView = 85f;
     public float eyeHeight;
+
+    [Header("Weapon Values")]
+    public Transform gunBarrel;
+    [Range(0.1f, 10f)]
+    public float fireRate;
+
+    
+    //Just for debugging purposes
+    
+    [SerializeField] private string currentState;
     void Start()
     {
         stateMachine = GetComponent<StateMachine>();
@@ -26,6 +33,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         CanSeePlayer();
+        currentState = stateMachine.activeState.ToString();
     }
 
     public bool CanSeePlayer()
