@@ -1,6 +1,7 @@
 using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
+
 {
     public Camera cam;
     private float xRotation = 0f;
